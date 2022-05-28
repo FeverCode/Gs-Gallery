@@ -74,3 +74,6 @@ class ImageTestCase(TestCase):
         self.new_image.delete_image()
         images = Image.objects.all()
         self.assertTrue(len(images) == 0)
+        
+        
+    
