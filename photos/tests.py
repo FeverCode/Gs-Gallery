@@ -46,3 +46,25 @@ class CategoryTestCase(TestCase):
         self.new_category.delete_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories) == 0)
+        
+class ImageTestCase(TestCase):
+    # Set up method
+    def setUp(self):
+        self.new_image = Image(image_name = 'Nairobi')
+
+    # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_image,Image))
+
+    # Testing Save Method
+    def test_save_method(self):
+        self.new_image.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)
+
+    # Testing Delete Method
+    def test_delete_method(self):
+        self.new_image.save_image()
+        self.new_image.delete_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) == 0)
