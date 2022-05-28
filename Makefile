@@ -14,4 +14,4 @@ makemigrations:
 	python3 manage.py makemigrations
 
 test:
-	python3 manage.py test gallery
+	python3 manage.py test photos
