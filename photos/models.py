@@ -11,7 +11,16 @@ class Location(models.Model):
 
     def save_location(self):
         self.save()
-
+        
+    @classmethod
+    def get_location(cls):
+        location = Location.objects.all()
+        return location
+    
+    @classmethod
+    def update_location(cls,id, value):
+        cls.objects.filter(id=id).update(image=value)
+        
     def delete_location(self):
         self.delete()
     
@@ -48,11 +57,26 @@ class Image(models.Model):
     
     @classmethod
     def get_image_by_id(cls, id):
-        image = cls.objects.filter(id=id)
+        image = cls.objects.filter(id=id).all()
         return image
+    
+    @classmethod
+    def update_image(cls, id, value):
+        image = cls.objects.filter(id=id).update(image=value).all()
+        return image
+    
+    @classmethod
+    def view_location(cls,name):
+        location = cls.objects.filter(location=name)
+        return location
+    
+    @classmethod
+    def view_category(cls,cat):
+        category = cls.objects.filter(category=cat)
+        return category
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def save_image(self):
         self.save()

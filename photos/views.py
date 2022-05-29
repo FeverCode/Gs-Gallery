@@ -12,6 +12,11 @@ def index(request):
     ctx = {'images': photo}
     return render(request, 'index.html', ctx)
 
+
+def location_img(request, location):
+    images = Image.filter_by_location(location)
+    return render(request, 'location.html', {'location_img': images})
+
 def SearchResults(request):
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
