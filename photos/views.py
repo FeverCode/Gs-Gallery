@@ -1,16 +1,25 @@
 from django.views.generic import TemplateView, ListView
 from django.shortcuts import render
 
-from photos.models import Category, Image
+from photos.models import Category, Image, Location
 
 # Create your views here.
 def index(request):
-    
-    # imports photos and save it in database
     photo = Image.objects.all()
-    # adding context
+    category = Category.objects.all()
+    location = Location.objects.all()
     ctx = {'images': photo}
-    return render(request, 'index.html', ctx)
+    
+    if 'location' in request.GET and request.GET['location']:
+        name = request.GET['location']
+        photo = Image.view_location(name)
+    
+    elif 'category' in request.GET and request.GET['category']:
+        cat = request.GET('category')
+        images = Image.view_category(cat)
+        
+        return render(request, 'index.html',{"name":name, "images":photo, "cat":cat})
+    return render(request, 'index.html',{"images":photo, "location":location, "category":category})
 
 
 def location_img(request, location):

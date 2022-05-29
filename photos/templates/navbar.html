@@ -25,9 +25,9 @@
               Location
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Nairobi</a></li>
-              <li><a class="dropdown-item" href="#">China</a></li>
-              <li><a class="dropdown-item" href="#">Maldives</a></li>
+              {% for location in locations %}
+              <a class="dropdown-item" href="/?location={{location.id}}">{{location.l_name}}</a>
+              {%endfor%}
             </ul>
         </ul>
       </div>
