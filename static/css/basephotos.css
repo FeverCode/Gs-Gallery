@@ -25,6 +25,13 @@
   line-height: 1.9;
 } */
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
 .navbar-light .navbar-brand {
   color: #fff;
   font-size: 25px;
@@ -75,4 +82,8 @@ h5
 .navbar-nav > li{
   padding-left:30px;
   padding-right:30px;
+}
+
+#collection{
+  margin-top: 50px;
 }
