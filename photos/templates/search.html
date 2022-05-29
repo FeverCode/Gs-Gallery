@@ -13,8 +13,8 @@
 
   <div class="row">
 
-  {% if articles %}
-    {% for image in images %}
+  {% if images %}
+    {% for pic in images %}
       <div class="col-sm-6 col-md-3">
           <h1>{{image.title}}</h1>
           <img src="{{pic.image.url}}" class="img-responsive" alt="Image" width="250" height="250">

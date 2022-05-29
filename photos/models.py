@@ -40,6 +40,16 @@ class Image(models.Model):
     def search_image(cls, search_term):
         image = cls.objects.filter(category__name__icontains=search_term)
         return image
+    
+    @classmethod
+    def filter_by_location(cls, query):
+        imageLocation = cls.objects.filter(location__name__icontains=query)
+        return imageLocation
+    
+    @classmethod
+    def get_image_by_id(cls, id):
+        image = cls.objects.filter(id=id)
+        return image
 
     def __str__(self):
         return self.name
@@ -53,14 +63,8 @@ class Image(models.Model):
     
 
 
-@classmethod
-def get_image_by_id(cls,id):
-    image = cls.objects.filter(id=id)
-    return image
 
 
 
-@classmethod
-def filter_by_location(cls,query):
-    imageLocation = cls.objects.filter(l_name__icontains=query)
-    return imageLocation
+
+
