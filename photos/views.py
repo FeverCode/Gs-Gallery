@@ -9,3 +9,6 @@ def index(request):
     # adding context
     ctx = {'images': photo}
     return render(request, 'index.html', ctx)
+
+def showlist(request):
+    return render(request, 'showlist.html')

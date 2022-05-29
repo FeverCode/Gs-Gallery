@@ -1,10 +1,6 @@
 {%extends 'base.html'%}
 {%block content%}
 
-        <h2>Cloudinary Fish</h2>
-        <!-- loop through all the images -->
-        {% for pic in images %}
-            <img src="{{pic.image.url}}" alt="fish">
-        {% endfor %}
+       {% include "grid-gallery.html" %}
 
 {% endblock %}
