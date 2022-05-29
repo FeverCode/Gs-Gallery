@@ -20,5 +20,4 @@ from photos import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("photos.urls")),
-    path('showlist', views.showlist, name='showlist'),
 ]
