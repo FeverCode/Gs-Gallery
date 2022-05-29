@@ -71,3 +71,8 @@ h5
 {
   color: green;
 }
+
+.navbar-nav > li{
+  padding-left:30px;
+  padding-right:30px;
+}
