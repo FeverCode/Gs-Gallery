@@ -1,3 +1,5 @@
+from email.mime import image
+from multiprocessing import context
 from django.views.generic import TemplateView, ListView
 from django.shortcuts import render
 
@@ -5,26 +7,27 @@ from photos.models import Category, Image, Location
 
 # Create your views here.
 def index(request):
-    photo = Image.objects.all()
-    category = Category.objects.all()
-    location = Location.objects.all()
-    ctx = {'images': photo}
-    
-    if 'location' in request.GET and request.GET['location']:
-        name = request.GET['location']
-        photo = Image.view_location(name)
-    
-    elif 'category' in request.GET and request.GET['category']:
-        cat = request.GET('category')
+     images = Image.objects.all()
+     category = Category.objects.all()
+     locations = Location.get_location()
+
+     if 'location' in request.GET and request.GET['location']:
+        name = request.GET.get('location')
+        images = Image.view_location(name)
+
+     elif 'category' in request.GET and request.GET['category']:
+        cat = request.GET.get('Category')
         images = Image.view_category(cat)
-        
-        return render(request, 'index.html',{"name":name, "images":photo, "cat":cat})
-    return render(request, 'index.html',{"images":photo, "location":location, "category":category})
+
+        return render(request, 'index.html', {"name": name, "images": images, "cat": cat})
+     return render(request, "index.html", {'images': images, 'locations': locations, 'category': category})
 
 
 def location_img(request, location):
     images = Image.filter_by_location(location)
     return render(request, 'location.html', {'location_img': images})
+
+    
 
 def SearchResults(request):
     if 'image' in request.GET and request.GET["image"]:
