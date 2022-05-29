@@ -3,7 +3,9 @@ from .models import Image
 
 # Create your views here.
 def index(request):
-    photo = Image.objects.all()
     
-    ctx = {'images': photo                                                                                                                                          }
-    return render(request, 'index.html', ctx)    
+    # imports photos and save it in database
+    photo = Image.objects.all()
+    # adding context
+    ctx = {'images': photo}
+    return render(request, 'index.html', ctx)
