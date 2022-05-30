@@ -42,11 +42,11 @@ Live link to the project
 ## Running Project
 
 + On terminal where you have opened the cloned project
-  + `sudo pip3 install virtualenv` - To create virtual enviroment
-  + `virtualenv venv` - To activate the virtual enviroment
+  + `sudo pip3 install virtualenv` - To install virtual enviroment
+  + `virtualenv venv` - To create virtual enviroment
+  + `source venv/bin/activate` - To activate virtual enviroment
   + `pip install -r requirements.txt` - To install requirements
   + `make` - to start the server
-  + `$ ./start.sh` - to run the project
 
 ## Running Tests
 
