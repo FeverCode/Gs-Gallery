@@ -1,0 +1,51 @@
+<div class="separator" id="collections">
+    <h3 class="capitalize dark-text">Collection <b class="yellow-text">Photos</b> </h3>
+</div>
+<div class="card-columns" id="view">
+    {% for img in images %}
+    <a>
+        <div class="card img-responsive" data-toggle="modal" data-target="#modal1{{img.id}}">
+            <img src="{{img.image.url}}" alt="{{img.name}}" class="img-fluid">
+        </div>
+    </a>
+    <div class="modal" id="modal1{{img.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content modalcard">
+                <div class="modal-header">
+                    <h4 class="modal-title dark-text" id="img-header">{{img.title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="{{img.image.url}}" alt="{{image.title}}" class="img-fluid">
+                    <div class="">
+                        <h5 class="img-description">
+                            <strong><b class="yellow-text">Description:</b></strong>
+                            {{img.description}}
+                        </h5>
+                        <h5 class="imd-category">
+                            <strong><b class="yellow-text">Category:</b></strong> 
+                            {{img.category}}
+                        </h5>
+                        <h5 class="img-location">
+                            <strong><b class="yellow-text">Location:</b></strong>
+                            {{img.location}}
+                        </h5>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button  type="button" name="button" class="btn btn-primary btn-sm mr-4 share" data-url="{{ img.image.url }}" data-bs-toggle="tooltip" title="Copy image url">Copy Image Link</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm ml-4" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+    
