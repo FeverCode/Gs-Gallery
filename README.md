@@ -19,7 +19,7 @@
  A personal gallery application that displays photos for others to see.
 
 Live link to the project
-[Gs-Gallery](https://.herokuapp.com/)
+[Gs-Gallery](https://gs-gallery.herokuapp.com/)
 
 ## Requirements
 
