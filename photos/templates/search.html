@@ -1,5 +1,5 @@
 {%extends 'base.html'%} 
-
+{% load static%}
   {% block content %}
 <div class="container pt-5 mt-5">
 
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" name="button" class="btn btn-primary btn-sm mr-4" value="{{image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
+                    <button type="button" name="button" class="btn btn-primary btn-sm mr-4" id="myInput" value="{{image.image_path.url}}" onclick="copylink(this.value)">Copy Image Link</button>
                     <button type="button" class="btn btn-outline-danger btn-sm ml-4" data-dismiss="modal">Close</button>
                 </div>
                 </div>
